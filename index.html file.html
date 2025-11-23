@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Young PFT - Music Page</title>
+
+  <style>
+    /* ======== ESTILO GERAL ======== */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(90deg, #111111, #3a0ca3);
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 15px;
+      background: #1a1a1a;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #bdbdbd;
+      font-weight: bold;
+      transition: 0.3s;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    /* ======== SEÇÕES ======== */
+    .section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section h2 {
+      font-size: 1.9rem;
+      margin-bottom: 10px;
+    }
+
+    /* ======== CARD DAS MÚSICAS ======== */
+    .music-card {
+      background: #181818;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #3a0ca3;
+      transition: 0.3s;
+    }
+
+    .music-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 15px #3a0ca3;
+    }
+
+    .music-card h3 {
+      margin-top: 0;
+      font-size: 1.3rem;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #3a0ca3;
+      color: white;
+      font-weight: bold;
+      transition: 0.3s;
+      letter-spacing: 0.5px;
+    }
+
+    button:hover {
+      background: #5f15ff;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #111111;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+
+    /* ======== RESPONSIVIDADE ======== */
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      nav {
+        gap: 15px;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+
+      .music-card {
+        padding: 15px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Young PFT • Official Music Page</h1>
+  </header>
+
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#musicas">Músicas</a>
+    <a href="#upload">Upload</a>
+  </nav>
+
+  <section class="section" id="sobre">
+    <h2>Sobre o Artista</h2>
+    <p>Bem-vindo à página oficial de Young PFT! Aqui podes ouvir as músicas, fazer download e enviar novas faixas para divulgação.</p>
+  </section>
+
+  <section class="section" id="musicas">
+    <h2>Músicas Disponíveis</h2>
+
+    <div class="music-card">
+      <h3>Música 1 - Título</h3>
+      <button>Download</button>
+    </div>
+
+    <div class="music-card">
+      <h3>Música 2 - Título</h3>
+      <button>Download</button>
+    </div>
+
+    <div class="music-card">
+      <h3>Música 3 - Título</h3>
+      <button>Download</button>
+    </div>
+
+  </section>
+
+  <section class="section" id="upload">
+    <h2>Enviar a Tua Música</h2>
+    <p>Carrega aqui a tua faixa para adicionar ao site.</p>
+    <button>Upload</button>
+  </section>
+
+  <footer>
+    <p>© 2025 Young PFT. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
