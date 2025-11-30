@@ -3,37 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Young PFT - Music Page</title>
+  <title>Telfrank Music</title>
 
   <style>
-    /* ======== ESTILO GERAL ======== */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #0d0d0d;
       color: #ffffff;
-      line-height: 1.6;
     }
 
     header {
       background: linear-gradient(90deg, #111111, #3a0ca3);
-      padding: 40px 20px;
+      padding: 30px;
       text-align: center;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 2.4rem;
       letter-spacing: 2px;
     }
 
     nav {
       display: flex;
       justify-content: center;
-      gap: 25px;
+      gap: 20px;
       padding: 15px;
       background: #1a1a1a;
-      flex-wrap: wrap;
     }
 
     nav a {
@@ -41,48 +38,51 @@
       color: #bdbdbd;
       font-weight: bold;
       transition: 0.3s;
-      font-size: 1.1rem;
     }
 
     nav a:hover {
       color: #ffffff;
     }
 
-    /* ======== SE«’ES ======== */
     .section {
       padding: 40px 20px;
       max-width: 900px;
       margin: auto;
     }
 
-    .section h2 {
-      font-size: 1.9rem;
-      margin-bottom: 10px;
+    /* üîç Caixa de Pesquisa */
+    .search-box {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 20px;
+      background: #1a1a1a;
+      color: white;
+      font-size: 1rem;
     }
 
-    /* ======== CARD DAS M⁄SICAS ======== */
+    /* üéµ M√∫sica Card */
     .music-card {
       background: #181818;
       padding: 20px;
       border-radius: 12px;
       margin-bottom: 20px;
       border: 1px solid #3a0ca3;
-      transition: 0.3s;
-    }
-
-    .music-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 15px #3a0ca3;
     }
 
     .music-card h3 {
       margin-top: 0;
-      font-size: 1.3rem;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
     }
 
     button {
-      margin-top: 10px;
-      padding: 12px 22px;
+      padding: 10px 20px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
@@ -90,12 +90,10 @@
       color: white;
       font-weight: bold;
       transition: 0.3s;
-      letter-spacing: 0.5px;
     }
 
     button:hover {
       background: #5f15ff;
-      transform: scale(1.05);
     }
 
     footer {
@@ -103,81 +101,96 @@
       padding: 30px;
       background: #111111;
       margin-top: 40px;
-      font-size: 0.9rem;
     }
 
-    /* ======== RESPONSIVIDADE ======== */
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.8rem;
-      }
-
-      nav {
-        gap: 15px;
-      }
-
-      nav a {
-        font-size: 1rem;
-      }
-
-      .music-card {
-        padding: 15px;
-      }
-
-      button {
-        width: 100%;
-      }
+    audio {
+      width: 100%;
+      margin-top: 10px;
     }
 
   </style>
 </head>
 <body>
-
   <header>
-    <h1>Young PFT ï Official Music Page</h1>
+    <h1>Telfrank Music ‚Ä¢ Official Page</h1>
   </header>
 
   <nav>
     <a href="#sobre">Sobre</a>
-    <a href="#musicas">M˙sicas</a>
+    <a href="#musicas">M√∫sicas</a>
     <a href="#upload">Upload</a>
   </nav>
 
   <section class="section" id="sobre">
-    <h2>Sobre o Artista</h2>
-    <p>Bem-vindo ‡ p·gina oficial de Young PFT! Aqui podes ouvir as m˙sicas, fazer download e enviar novas faixas para divulgaÁ„o.</p>
+    <h2>Sobre o Projecto</h2>
+    <p>Bem-vindo ao Telfrank Music! Aqui podes ouvir m√∫sicas, fazer download e no futuro enviar as tuas pr√≥prias faixas.</p>
   </section>
 
   <section class="section" id="musicas">
-    <h2>M˙sicas DisponÌveis</h2>
+    <h2>M√∫sicas Dispon√≠veis</h2>
 
-    <div class="music-card">
-      <h3>M˙sica 1 - TÌtulo</h3>
-      <button>Download</button>
-    </div>
+    <!-- üîç Pesquisa -->
+    <input type="text" id="search" class="search-box" placeholder="Pesquisar m√∫sica..." onkeyup="filtrarMusicas()">
 
-    <div class="music-card">
-      <h3>M˙sica 2 - TÌtulo</h3>
-      <button>Download</button>
-    </div>
-
-    <div class="music-card">
-      <h3>M˙sica 3 - TÌtulo</h3>
-      <button>Download</button>
-    </div>
-
+    <!-- üéµ Lista de m√∫sicas (gerado pelo JS) -->
+    <div id="music-list"></div>
   </section>
 
   <section class="section" id="upload">
-    <h2>Enviar a Tua M˙sica</h2>
-    <p>Carrega aqui a tua faixa para adicionar ao site.</p>
+    <h2>Enviar a Tua M√∫sica</h2>
+    <p>(Vers√£o inicial) Em breve ser√° poss√≠vel enviar m√∫sica e ela aparecer automaticamente no site.</p>
     <button>Upload</button>
   </section>
 
   <footer>
-    <p>© 2025 Young PFT. Todos os direitos reservados.</p>
+    <p>¬© 2025 Telfrank Music. Todos os direitos reservados.</p>
   </footer>
+
+<script>
+  // üéµ Lista de m√∫sicas (podes adicionar mais aqui)
+  const musicas = [
+    { titulo: "M√∫sica 1 - Title", arquivo: "musica1.mp3" },
+    { titulo: "M√∫sica 2 - Title", arquivo: "musica2.mp3" },
+    { titulo: "M√∫sica 3 - Title", arquivo: "musica3.mp3" }
+  ];
+
+  // üìå Renderizar m√∫sicas
+  function carregarMusicas() {
+    const lista = document.getElementById("music-list");
+    lista.innerHTML = "";
+
+    musicas.forEach((musica, i) => {
+      lista.innerHTML += `
+        <div class="music-card">
+          <h3>${musica.titulo}</h3>
+
+          <audio controls>
+            <source src="${musica.arquivo}" type="audio/mpeg">
+          </audio>
+
+          <div class="controls">
+            <a href="${musica.arquivo}" download>
+              <button>Download</button>
+            </a>
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  // üîç Sistema de pesquisa
+  function filtrarMusicas() {
+    const texto = document.getElementById("search").value.toLowerCase();
+    const cards = document.querySelectorAll(".music-card");
+
+    cards.forEach(card => {
+      const titulo = card.querySelector("h3").textContent.toLowerCase();
+      card.style.display = titulo.includes(texto) ? "block" : "none";
+    });
+  }
+
+  carregarMusicas();
+</script>
 
 </body>
 </html>
